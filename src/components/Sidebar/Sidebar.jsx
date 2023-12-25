@@ -27,7 +27,7 @@ const Sidebar = () => {
         {
             icon: <Avatar size={"sm"} name='Virat Kohli' src='/kohli.jpeg' />,
             text: "Profile",
-            link: "/asaprogrammer"
+            link: "/kohli"
         }
     ];
 
