@@ -4,17 +4,18 @@ import PostFooter from './PostFooter'
 import PostHeader from './PostHeader'
 
 
-const FeedPost = () => {
-  return <>
-  <PostHeader />
-  <Box my={2}>
-    <Image src='/img1.png' alt='user profile picture' />
-  </Box>
-  <PostFooter />
-  
-  
-  
-  </>
-}
+const FeedPost = ({ image, username, avatar }) => {
+  // console.log("Image URL:", image); // Debugging line
+  return (
+    <>
+      <PostHeader username={username} avatar={avatar} />
+      <Box my={2} borderRadius={4} overflow={'hidden'}>
+        <Image src={image} alt={username} />
+      </Box>
+      <PostFooter username={username} />
+    </>
+  );
+};
+
 
 export default FeedPost
