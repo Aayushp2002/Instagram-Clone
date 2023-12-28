@@ -1,9 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'; // Import useState here
+import { Avatar, Button, Box, Flex, VStack } from '@chakra-ui/react';
 
-const SuggestedUser = () => {
+const SuggestedUser = ({ followers = 0, name, avatar }) => { // Destructure props correctly
+  const [isFollowed, setIsFollowed] = useState(false);
+
   return (
-    <div>SuggestedUser</div>
-  )
+    <Flex justifyContent={"space-between"} alignItems={"center"} w={"full"}>
+      <Flex alignItems={"center"} gap={2}>
+        <Avatar src={avatar} name={name} size={"md"} />
+        <VStack spacing={2} alignItems={"flex-start"}>
+          <Box fontSize={12} fontWeight={"bold"}>
+            {name}
+          </Box>
+          <Box fontSize={11} color={"gray.500"}>
+            {followers} followers
+          </Box>
+        </VStack>
+      </Flex>
+      <Button
+        fontSize={13}
+        bg={"transparent"}
+        p={0}
+        h={"max-content"}
+        fontWeight={"medium"}
+        color={"blue.400"}
+        cursor={"pointer"}
+        _hover={{ color: "white" }}
+        onClick={() => setIsFollowed(!isFollowed)}
+      >
+        {isFollowed ? "Following" : "Follow"}
+      </Button>
+    </Flex>
+  );
 }
 
-export default SuggestedUser
+export default SuggestedUser;
